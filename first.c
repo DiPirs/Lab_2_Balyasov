@@ -10,8 +10,8 @@
 const double RAND_MAX_F = RAND_MAX;
 
 int main() {
-	int			x = 0, i = 0, case_1 = 0, j;
-	int			size_gener, len_inter_keyboard;
+	int		x = 0, i = 0, case_1 = 0, j;
+	int		size_gener, len_inter_keyboard;
 	float		min_gener, max_gener;
 	float		inter_keyboard;
 

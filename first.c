@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <locale.h>
 #include <Windows.h>
-#include <malloc.h>
 #include <time.h>
 
 const double RAND_MAX_F = RAND_MAX;

@@ -9,10 +9,10 @@
 const double RAND_MAX_F = RAND_MAX;
 
 int main() {
-	int		x = 0, i = 0, case_1 = 0, j;
-	int		size_gener, len_inter_keyboard;
-	float		min_gener, max_gener;
-	float		inter_keyboard;
+	int			x = 0, i = 0, case_1 = 0, j;
+	int			size_gener, len_inter_keyboard;
+	double		min_gener, max_gener;
+	double		inter_keyboard;
 
 	setlocale(LC_ALL, "Russian");
 	srand(time(NULL));
@@ -35,9 +35,9 @@ int main() {
 				printf("Введите кол-во элементов массива: ");
 				scanf_s("%d", &size_gener);
 				printf("Введите минимальное число: ");
-				scanf_s("%f", &min_gener);
+				scanf_s("%lf", &min_gener);
 				printf("Введите максимальное число: ");
-				scanf_s("%f", &max_gener);
+				scanf_s("%lf", &max_gener);
 				printf("Ожидайте проверки данных...\n\n");
 				Sleep(1500);
 				if (min_gener > max_gener)
@@ -59,7 +59,7 @@ int main() {
 
 			for (j = 0; j < size_gener; j++)
 			{
-				fprintf(file, "%f\n", (rand() / RAND_MAX_F) * ((float)max_gener - (float)min_gener) + min_gener);
+				fprintf(file, "%lf\n", (rand() / RAND_MAX_F) * ((double)max_gener - (double)min_gener) + min_gener);
 			}
 
 			printf("Поздравляю, Вы только что сгенерировали числа\nМожете убедиться, заглянув в текстовой файл.\n");
@@ -73,7 +73,7 @@ int main() {
 			printf("Пожалуйста, введите все нужные Вам числа (числа вводить с запятой, а не с точкой. К примеру: 1,25):\n");
 			for (j = 0; j < len_inter_keyboard; j++)
 			{
-				scanf_s("%f", &inter_keyboard);
+				scanf_s("%lf", &inter_keyboard);
 				fprintf(file, "%f\n", inter_keyboard);
 			}
 			printf("\nОжидайте...\n\n");

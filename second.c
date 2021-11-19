@@ -25,6 +25,7 @@ void sorting_bubble(double* arr_b, int size)
 {
     int         i, j;
     double      buff;
+
     for (i = 0; i < size; i++)
     {
         for (j = 0; j < size - (i + 1); j++)
@@ -43,17 +44,17 @@ void sorting_insert(double* arr_b, int size)
 {
     int         i, j;
     double      buff;
+
+    for (i = 1; i < size; i++)
     {
-        for (i = 1; i < size; i++)
+        for (j = i; j > 0 && arr_b[j - 1] > arr_b[j]; j--)
         {
-            for (j = i; j > 0 && arr_b[j - 1] > arr_b[j]; j--)
-            {
-                buff = arr_b[j];
-                arr_b[j] = arr_b[j - 1];
-                arr_b[j - 1] = buff;
-            }
+            buff = arr_b[j];
+            arr_b[j] = arr_b[j - 1];
+            arr_b[j - 1] = buff;
         }
     }
+    
 }
 
 void sorting_fast(double* arr_b, int start, int end)
@@ -80,10 +81,12 @@ void sorting_fast(double* arr_b, int start, int end)
             right--;
         }
     }
+
     if (start < right)
         sorting_fast(arr_b, start, right);
     if (end > left)
         sorting_fast(arr_b, left, end);
+
 }
 int main() 
 {
@@ -96,7 +99,7 @@ int main()
     clock_t     startTime, endTime;
 
     setlocale(LC_ALL, "Russian");
-    FILE* file = fopen(".../Lab_2/file.txt", "r");
+    FILE* file = fopen("C:/Users/SolEk/source/repos/Lab_2/Lab_2/file.txt", "r");
 
     printf_s("Происходит чтение из файла...\n");
     Sleep(1000);
@@ -117,6 +120,7 @@ int main()
         printf_s("Вас приветствует меню \"Сортировка файла\". Что бы Вы хотели сделать?\n");
         printf_s("1. Печать\n2. Сортировка\n3. Сброс\n4. Выход\n");
         scanf_s("%d", &x);
+
         switch (x)
         {
         case 1:
@@ -130,6 +134,7 @@ int main()
 
             printf("\n1. Вернуться\n2. Выйти\n");
             scanf_s("%d", &case_conf_1);
+
             if (case_conf_1 == 2)
             {
                 x = 4;
@@ -142,6 +147,7 @@ int main()
             printf("Вы выбрали \"Сортировка\". Каким вариантом сортировки Вы бы хотели воспользоваться?\n");
             printf("1. Пузырьком\n2. Вставками\n3. Быстрая\n");
             scanf_s("%d", &case_conf_2);
+
             switch (case_conf_2)
             {
             case 1:
@@ -187,6 +193,7 @@ int main()
             Sleep(1500);
 
             memcpy(b, a, sizeof(double) * size_file);
+
             printf_s("Сортировка успешно сброшена.\n\n");
             Sleep(1000);
 
@@ -196,6 +203,7 @@ int main()
         default:
             printf("Вы ввели не коректное число, повторите попытку");
             Sleep(1000);
+
             system("cls");
             break;
         }

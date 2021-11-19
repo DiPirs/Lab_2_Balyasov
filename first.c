@@ -40,6 +40,7 @@ int main() {
 				scanf_s("%lf", &max_gener);
 				printf("Ожидайте проверки данных...\n\n");
 				Sleep(1500);
+				
 				if (min_gener > max_gener)
 				{
 					printf("Вы ввели не правильные данные. Пожалуйста, повторите попытку.\n");
@@ -76,6 +77,7 @@ int main() {
 				scanf_s("%lf", &inter_keyboard);
 				fprintf(file, "%f\n", inter_keyboard);
 			}
+				
 			printf("\nОжидайте...\n\n");
 			Sleep(1000);
 

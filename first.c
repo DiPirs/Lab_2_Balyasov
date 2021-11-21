@@ -38,10 +38,9 @@ int main() {
 				scanf_s("%lf", &min_gener);
 				printf("Введите максимальное число: ");
 				scanf_s("%lf", &max_gener);
-				printf("Ожидайте проверки данных...\n\n");
+				printf("\nОжидайте проверки данных...\n\n");
 				Sleep(1500);
-				
-				if (min_gener > max_gener)
+				if ((min_gener > max_gener) || (size_gener <= 0))
 				{
 					printf("Вы ввели не правильные данные. Пожалуйста, повторите попытку.\n");
 					Sleep(1000);
@@ -77,7 +76,6 @@ int main() {
 				scanf_s("%lf", &inter_keyboard);
 				fprintf(file, "%f\n", inter_keyboard);
 			}
-				
 			printf("\nОжидайте...\n\n");
 			Sleep(1000);
 

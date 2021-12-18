@@ -20,7 +20,7 @@ int the_first_norm_of_vector(int size_file, double b[])
     printf_s("\nНорма вектора = %lf\n\n", pow(vichisl, (1 / 1)));
 
     printf("\nХотите подсчитать другую норму фектора?\n");
-    printf_s("1. Да\n2. Нет\n");
+    printf("1. Да\n2. Нет\n");
     scanf_s("%d", &answer);
     if (answer == 1)
         return 0;
@@ -39,7 +39,7 @@ int the_second_norm_of_vector(int size_file, double b[])
     printf("\nНорма вектора = %lf\n\n", vichisl);
 
     printf("\nХотите подсчитать другую норму фектора?\n");
-    printf_s("1. Да\n2. Нет\n");
+    printf("1. Да\n2. Нет\n");
     scanf_s("%d", &answer);
     if (answer == 1)
         return 0;
@@ -62,7 +62,7 @@ int the_Helder_norm_of_vector(int size_file, double b[])
     printf("\nГельдерова норма вектора равна: %lf\n", pow(sum, 1 / size_file));
 
     printf("\nХотите подсчитать другую норму фектора?\n");
-    printf_s("1. Да\n2. Нет\n");
+    printf("1. Да\n2. Нет\n");
     scanf_s("%d", &answer);
     if (answer == 1)
         return 0;
@@ -88,7 +88,7 @@ int infinite_norm_of_vector(int size_file, double b[])
     printf("\nБесконечная норма вектора равна: %lf\n", max);
 
     printf("\nХотите подсчитать другую норму фектора?\n");
-    printf_s("1. Да\n2. Нет\n");
+    printf("1. Да\n2. Нет\n");
     scanf_s("%d", &answer);
     if (answer == 1)
         return 0;
@@ -119,7 +119,7 @@ int normalization_of_the_array_vector(int size_file, double b[])
     printf("}\n");
 
     printf("\nХотите подсчитать другую норму фектора?\n");
-    printf_s("1. Да\n2. Нет\n");
+    printf("1. Да\n2. Нет\n");
     scanf_s("%d", &answer);
     if (answer == 1)
         return 0;

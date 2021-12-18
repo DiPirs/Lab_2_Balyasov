@@ -56,7 +56,7 @@ int the_Helder_norm_of_vector(int size_file, double b[])
 
     for (int index = 0; index < size_file; index++)
     {
-        sum += pow(abs(b[index]), size_file);
+        sum += pow(fabs(b[index]), size_file);
     }
 
     printf("\nГельдерова норма вектора равна: %lf\n", pow(sum, 1 / size_file));
@@ -81,7 +81,7 @@ int infinite_norm_of_vector(int size_file, double b[])
     {
         if (b[index] > max)
         {
-            max = abs(b[index]);
+            max = fabs(b[index]);
         }
     }
 
@@ -105,7 +105,7 @@ int normalization_of_the_array_vector(int size_file, double b[])
 
     for (int index = 0; index < size_file; index++)
     {
-        sum += pow(abs(b[index]), 2);
+        sum += pow(fabs(b[index]), 2);
     }
 
     sum_sqrt = sqrt(sum);

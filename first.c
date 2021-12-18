@@ -9,10 +9,14 @@
 const double RAND_MAX_F = RAND_MAX;
 
 int main() {
-	int		x = 0, i = 0, case_1 = 0, j;
-	int		size_gener, len_inter_keyboard;
+	int			x = 0, i = 0, case_1 = 0, j, o;
+	int			size_gener, len_inter_keyboard;
 	double		min_gener, max_gener;
 	double		inter_keyboard;
+
+	int n;
+
+	double* mas = 0;
 
 	setlocale(LC_ALL, "Russian");
 	srand(time(NULL));
@@ -23,7 +27,7 @@ int main() {
 	{
 		system("cls");
 		printf("Вас приветствует меню \"Сортировка\". Что бы Вы хотели сделать?\n");
-		printf("1. Сгенерировать числа\n2. Ввести с клавиатуры\n");
+		printf("1. Сгенерировать числа\n2. Ввести с клавиатуры\n3. Считать данные с другого файла\n");
 		scanf_s("%d", &x);
 		switch (x)
 		{
@@ -31,7 +35,7 @@ int main() {
 			do
 			{
 				system("cls");
-				printf("Вы выбрали \"Генерацию чисел\"\n");
+				printf("Вы выбрали \"Генирацию чисел\"\n");
 				printf("Введите кол-во элементов массива: ");
 				scanf_s("%d", &size_gener);
 				printf("Введите минимальное число: ");
@@ -48,7 +52,7 @@ int main() {
 				else
 				{
 					system("cls");
-					printf("Данные корректны.\nСейчас произойдет магия генерации...\n\n");
+					printf("Данные коректны.\nСейчас произойдет магия генерации...\n\n");
 					Sleep(1000);
 					case_1++;
 				}
@@ -80,6 +84,34 @@ int main() {
 			Sleep(1000);
 
 			printf("Поздравляю, Вы только что записали числа в текстовый файл\nМожете убедиться, заглянув в него.\n");
+			i++;
+			break;
+		case 3:
+			system("cls");
+			printf("Вы выбрали \"Чтение с другого файла\"\n");
+
+			FILE* file_2 = 0;
+
+			fopen_s(&file_2, "file_2.txt", "r");
+			printf("Сколько элементов содержит файл?\n");
+			scanf_s("%d", &n);
+
+			mas = malloc(n * sizeof(double));
+
+			for (o = 0; o < n; o++)
+			{
+				mas[o] = 0;
+			}
+
+			for (o = 0; o < n; o++)
+			{
+				fscanf_s(file_2, "%lf\n", &(mas[o]));
+				fprintf(file, "%lf\n", mas[o]);
+			}
+
+			fclose(file_2);
+			fclose(file);
+
 			i++;
 			break;
 		default:

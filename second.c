@@ -10,7 +10,7 @@
 
 int the_first_norm_of_vector(int size_file, double b[])
 {
-    int answer;
+    int     answer;
     double  vichisl = 0;
 
     for (int k = 0; k < size_file; k++)
@@ -18,28 +18,34 @@ int the_first_norm_of_vector(int size_file, double b[])
         vichisl += fabs(pow(b[k], 1));
     }
     printf_s("\nНорма вектора = %lf\n\n", pow(vichisl, (1 / 1)));
+
+    printf("\nХотите подсчитать другую норму фектора?\n");
+    printf_s("1. Да\n2. Нет\n");
     scanf_s("%d", &answer);
-    if (answer == 2)
-    {
+    if (answer == 1)
         return 0;
-    }
+    else
+        return 1;
 
     return 0;
 }
 
 int the_second_norm_of_vector(int size_file, double b[])
 {
-    int answer;
+    int     answer;
     double  vichisl = 0;
 
     vichisl = fabs(b[size_file - 1]);
     printf("\nНорма вектора = %lf\n\n", vichisl);
-    scanf("%d", &answer);
 
-    if (answer == 2)
-    {
+    printf("\nХотите подсчитать другую норму фектора?\n");
+    printf_s("1. Да\n2. Нет\n");
+    scanf_s("%d", &answer);
+    if (answer == 1)
         return 0;
-    }
+    else
+        return 1;
+
     return 0;
 }
 
@@ -55,14 +61,14 @@ int the_Helder_norm_of_vector(int size_file, double b[])
 
     printf("\nГельдерова норма вектора равна: %lf\n", pow(sum, 1 / size_file));
 
-    printf("\nХотите подсчитать другую норму вектора?");
-    printf("\n1.Да\n2.Нет.\nВаш ответ: ");
-    scanf("%d", &answer);
-
+    printf("\nХотите подсчитать другую норму фектора?\n");
+    printf_s("1. Да\n2. Нет\n");
+    scanf_s("%d", &answer);
     if (answer == 1)
-    {
         return 0;
-    }
+    else
+        return 1;
+
     return 0;
 }
 
@@ -81,14 +87,14 @@ int infinite_norm_of_vector(int size_file, double b[])
 
     printf("\nБесконечная норма вектора равна: %lf\n", max);
 
-    printf("\nХотите подсчитать другую норму фектора?");
-    printf("\n1.Да\n2.Нет.\nВаш ответ: ");
-    scanf("%d", &answer);
-
+    printf("\nХотите подсчитать другую норму фектора?\n");
+    printf_s("1. Да\n2. Нет\n");
+    scanf_s("%d", &answer);
     if (answer == 1)
-    {
         return 0;
-    }
+    else
+        return 1;
+
     return 0;
 }
 
@@ -112,14 +118,14 @@ int normalization_of_the_array_vector(int size_file, double b[])
     }
     printf("}\n");
 
-    printf("\nХотите подсчитать другую норму фектора?");
-    printf("\n1.Да\n2.Нет.\nВаш ответ: ");
-    scanf("%d", &answer);
-
+    printf("\nХотите подсчитать другую норму фектора?\n");
+    printf_s("1. Да\n2. Нет\n");
+    scanf_s("%d", &answer);
     if (answer == 1)
-    {
         return 0;
-    }
+    else
+        return 1;
+
     return 0;
 }
 
@@ -208,11 +214,11 @@ void sorting_fast(double* arr_b, int start, int end)
 int main()
 {
     int         size_file;
-    int         x, i, x_1;
+    int         x, i, x_1, user_run = 0;
     int         case_conf_1, case_conf_2;
     double      * a, * b;
     double      time_prog;
-
+ 
     clock_t     startTime, endTime;
 
     setlocale(LC_ALL, "Russian");
@@ -316,34 +322,34 @@ int main()
 
             break;
         case 4:
-            system("cls");
-            printf("Вы выбрали \"Работа с массивом\". Чтобы вы хотели сделать?\n");
-            printf("1. Вычислить первую норму вектора\n2. Вычислить вторую норму вектора\n3. Вычислить Гельдерову норму вектора\n");
-            printf("4. Вычислить бесконечную норму вектора\n5. Нормировка вектора.\n");
-            scanf_s("%d", &x_1);
-            switch (x_1)
+            do
             {
-            case 1:
-                the_first_norm_of_vector(size_file, b);
-                break;
-            case 2:
-                the_second_norm_of_vector(size_file, b);
-                break;
-            
-            case 3:
-                the_Helder_norm_of_vector(size_file, b);
-                break;
-            
-            case 4:
-                infinite_norm_of_vector(size_file, b);
-                break;
-            case 5:
-                normalization_of_the_array_vector(size_file, b);
-                break;
-            default:
-                break;
-            }
-            break;
+                system("cls");
+                printf("Вы выбрали \"Работа с массивом\". Чтобы вы хотели сделать?\n");
+                printf("1. Вычислить первую норму вектора\n2. Вычислить вторую норму вектора\n3. Вычислить Гельдерову норму вектора\n");
+                printf("4. Вычислить бесконечную норму вектора\n5. Нормировка вектора.\n");
+                scanf_s("%d", &x_1);
+                switch (x_1)
+                {
+                case 1:
+                    user_run = the_first_norm_of_vector(size_file, b);
+                    break;
+                case 2:
+                    user_run = the_second_norm_of_vector(size_file, b);
+                    break;
+                case 3:
+                    user_run = the_Helder_norm_of_vector(size_file, b);
+                    break;
+                case 4:
+                    user_run = infinite_norm_of_vector(size_file, b);
+                    break;
+                case 5:
+                    user_run = normalization_of_the_array_vector(size_file, b);
+                    break;
+                default:
+                    break;
+                }
+            } while (user_run == 0);
         case 5:
             break;
         default:
